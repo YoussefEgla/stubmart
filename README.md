@@ -7,7 +7,11 @@
 
 ## Technologies
 
-- #### Node.js, Express, MongoDB, Redis, React with Next.js and NATS streaming server
+- #### TypeScript
+- #### Node.js and Express
+- #### MongoDB and Redis
+- #### React with Next.js
+- #### NATS streaming server (Event Bus)
 - #### Docker and Kubernetes (GKE)
 - #### Hosted on Google Cloud
 
