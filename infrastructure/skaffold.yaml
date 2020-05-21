@@ -5,10 +5,10 @@ deploy:
     manifests:
       - ./k8s/* # config files location
 build:
-  local:
-    push: false # Don't push to DockerHub
+  googleCloudBuild:
+    projectId: ticketing-app-277818
   artifacts:
-    - image: youssefegla/auth
+    - image: us.gcr.io/ticketing-app-277818/auth
       context: "../services/auth" # directory where it contains files for the image
       docker:
         dockerfile: Dockerfile
