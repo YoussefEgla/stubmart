@@ -40,9 +40,18 @@ server.use("/api/auth/", register);
 server.use("/api/auth/", login);
 server.use("/api/auth/", logout);
 
+// 404 route
 server.use((req, res) => {
   res.status(404).json({ error: "not found" });
 });
+
+/**
+ *
+ * Error handling middleware
+ *
+ */
+import { errorHandler } from "./middlewares";
+server.use(errorHandler);
 
 server.listen(3000, () => {
   console.log(`Server running on Port: 3000`);
