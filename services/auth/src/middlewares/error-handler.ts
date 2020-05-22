@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { RequestValidationError, DatabaseConnectionError } from "../errors";
+import { CustomError } from "../errors";
 
 export function errorHandler(
   err: Error,
@@ -7,22 +7,11 @@ export function errorHandler(
   res: Response,
   next: NextFunction
 ) {
-  if (err instanceof RequestValidationError) {
+  if (err instanceof CustomError) {
     return res
-      .status(400)
-      .json({
-        errors: err.errors.map((error) => {
-          return { message: error.msg, field: error.param };
-        }),
-      })
+      .status(err.statusCode)
+      .json({ errors: err.serializeErrors() })
       .end();
-    //
-  } else if (err instanceof DatabaseConnectionError) {
-    return res
-      .status(500)
-      .json({ errors: [{ message: err.reason }] })
-      .end();
-    //
   }
 
   res
