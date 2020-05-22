@@ -41,8 +41,9 @@ server.use("/api/auth/", login);
 server.use("/api/auth/", logout);
 
 // 404 route
-server.use((req, res) => {
-  res.status(404).json({ error: "not found" });
+import { NotFoundError } from "./errors";
+server.all("/*", () => {
+  throw new NotFoundError();
 });
 
 /**
