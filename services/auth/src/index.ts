@@ -8,6 +8,7 @@ if (!process.env.NODE_ENV) {
 
 // initialize server
 import express from "express";
+require("express-async-errors");
 const server = express();
 
 /**
@@ -42,7 +43,7 @@ server.use("/api/auth/", logout);
 
 // 404 route
 import { NotFoundError } from "./errors";
-server.all("/*", () => {
+server.all("/*", async () => {
   throw new NotFoundError();
 });
 
