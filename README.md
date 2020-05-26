@@ -125,9 +125,9 @@
 
 ### Auth
 
-| Purpose                      | Route                  | Method | Response                          |
-| ---------------------------- | ---------------------- | ------ | --------------------------------- |
-| Sign up for an account       | /api/users/signup      | POST   | {email: string, password: string} |
-| login to an existing account | /api/users/login       | POST   | {email: string, password: string} |
-| Sign out                     | /api/users/logout      | POST   | { }                               |
-| Get user info                | /api/users/currentuser | GET    | -                                 |
+| Purpose                      | Route                 | Method | Response                          |
+| ---------------------------- | --------------------- | ------ | --------------------------------- |
+| Sign up for an account       | /api/auth/signup      | POST   | {email: string, password: string} |
+| login to an existing account | /api/auth/login       | POST   | {email: string, password: string} |
+| Sign out                     | /api/auth/logout      | POST   | { }                               |
+| Get user info                | /api/auth/currentuser | GET    | -                                 |
