@@ -3,13 +3,15 @@ kind: Config
 deploy:
     kubectl:
         manifests:
-            - ./k8s/deployments/*
-            - ./k8s/services/*
+            - './k8s/ingress/*'
+            - ./k8s/*
 build:
-    local:
-        push: false
+    # local:
+    #     push: false
+    googleCloudBuild: 
+      projectId: ticketing-app-277818
     artifacts:
-        - image: stubmart/auth
+        - image: us.gcr.io/ticketing-app-277818/auth
           context: auth
           docker:
             dockerfile: Dockerfile
