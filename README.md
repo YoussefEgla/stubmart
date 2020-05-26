@@ -1,5 +1,14 @@
 # Stubmart
 
+## Main Features
+
+- ### Users can list events tickets for sale
+- ### Other users can purchase tickets
+- ### All users can list tickets for sale and purchase tickets
+- ### A ticket gets locked while a user starts the checkout process
+- ### A ticket is unlocked when a user leaves the checkout process.
+- ### Ticket price can be changed when it's unlocked
+
 - ### Online events ticket marketplace
 - ### Clone of stubhub's general features
 - ### Microservices arcitecture
