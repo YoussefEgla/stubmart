@@ -1,0 +1,25 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "Auth service for stubmart",
+  "scripts": {
+    "dev": "nodemon ./src/index.ts",
+    "start": "ts-node ./src/index.ts"
+  },
+  "repository": "https://github.com/YoussefEgla/stubmart",
+  "author": "Youssef AbouEgla",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@types/express": "^4.17.6",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/morgan": "^1.9.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  }
+}
