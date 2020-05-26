@@ -7,6 +7,8 @@
 - ### Microservices arcitecture
 - ### Deployment on Google Cloud
 
+---
+
 ## Main Features
 
 - ### Users can list events tickets for sale
@@ -15,6 +17,8 @@
 - ### A ticket gets locked while a user starts the checkout process
 - ### A ticket is unlocked when a user leaves the checkout process.
 - ### Ticket price can be changed when it's unlocked
+
+---
 
 ## Technologies
 
@@ -25,6 +29,8 @@
 - #### NATS streaming server (Event Bus)
 - #### Docker and Kubernetes (GKE)
 - #### Hosted on Google Cloud
+
+---
 
 ## Services
 
@@ -44,6 +50,8 @@
   - Integration with Stripe
   - Cancel order if payment fails
   - Completes order when payment succeeds
+
+---
 
 ## Database Schema Design
 
@@ -88,6 +96,8 @@
   - Charge Status
     - Created | Failed | Completed
 
+---
+
 ## Events
 
 - #### Auth
@@ -108,3 +118,16 @@
   - CHARGE_CREATED
   - CHARGE_REFUNDED
   - CHARGE_FAILED
+
+---
+
+## API
+
+### Auth
+
+| Purpose                      | Route                  | Method | Response                          |
+| ---------------------------- | ---------------------- | ------ | --------------------------------- |
+| Sign up for an account       | /api/users/signup      | POST   | {email: string, password: string} |
+| login to an existing account | /api/users/login       | POST   | {email: string, password: string} |
+| Sign out                     | /api/users/logout      | POST   | { }                               |
+| Get user info                | /api/users/currentuser | POST   | -                                 |
