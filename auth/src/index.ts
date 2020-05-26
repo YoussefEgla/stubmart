@@ -1,6 +1,7 @@
 require("dotenv").config();
 import logger from "morgan";
 import express from "express";
+import routes from "./routes";
 
 const server = express();
 
@@ -16,6 +17,14 @@ server.use(
   express.urlencoded({ extended: true }),
   express.json()
 );
+
+/**
+ *
+ * Apply Routes
+ *
+ */
+server.use(routes);
+
 /**
  *
  * Start Server
