@@ -45,24 +45,6 @@
   - Cancel order if payment fails
   - Completes order when payment succeeds
 
-## Events
-
-- #### Auth
-  - USER_CREATED
-  - USER_UPDATED
-  - USER_DELETED
-- #### Tickets
-  - TICKET_CREATED
-  - TICKET_UPDATED
-  - TICKET_DELETED
-- #### Orders
-  - ORDER_CREATED
-  - ORDER_CANCELLED
-  - ORDER_EXPIRED
-- #### Payments
-  - CHARGE_CREATED
-  - CHARGE_REFUNDED
-
 ## Database Schema Design
 
 - #### User
@@ -105,3 +87,24 @@
     - Created | Cancelled | Awaiting Payment | Completed
   - Charge Status
     - Created | Failed | Completed
+
+## Events
+
+- #### Auth
+  - USER_CREATED
+  - USER_UPDATED
+  - USER_DELETED
+- #### Tickets
+  - TICKET_CREATED
+  - TICKET_UPDATED
+  - TICKET_DELETED
+- #### Orders
+  - ORDER_CREATED
+  - ORDER_CANCELLED
+  - ORDER_EXPIRED
+  - ORDER_AWAITING_PAYMENT
+  - ORDER_CANCELLED
+- #### Payments
+  - CHARGE_CREATED
+  - CHARGE_REFUNDED
+  - CHARGE_FAILED
