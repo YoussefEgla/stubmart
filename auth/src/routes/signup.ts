@@ -19,7 +19,7 @@ router
     (req: Request, res: Response, next: NextFunction) => {
       // handle validation
       if (!validationResult(req).isEmpty()) {
-        next(new RequestValidationError(validationResult(req).array()));
+        return next(new RequestValidationError(validationResult(req).array()));
       }
 
       const { email, password } = req.body;

@@ -8,8 +8,14 @@ export const errorHandler = (
   next: NextFunction
 ) => {
   if (err instanceof BaseError) {
-    res.status(err.statusCode).json({ errors: err.serializeErrors() }).end();
+    return res
+      .status(err.statusCode)
+      .json({ errors: err.serializeErrors() })
+      .end();
   } else {
-    res.status(400).json({ errors: [{ message: "Something went wrong" }] });
+    return res
+      .status(400)
+      .json({ errors: [{ message: "Something went wrong" }] })
+      .end();
   }
 };

@@ -1,3 +1,35 @@
+# Application Database Configuration
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-mongo
+  template:
+    metadata:
+      labels:
+        app: auth-mongo
+    spec:
+      containers:
+        - name: auth-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-mongo-service
+spec:
+  selector:
+    app: auth-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+---
 # Application Configuration
 apiVersion: apps/v1
 kind: Deployment
@@ -30,35 +62,3 @@ spec:
       protocol: TCP
       port: 3000
       targetPort: 3000
----
-# Application Database Configuration
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: auth-mongo
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: auth-mongo
-  template:
-    metadata:
-      labels:
-        app: auth-mongo
-    spec:
-      containers:
-        - name: auth-mongo
-          image: mongo
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: auth-mongo-service
-spec:
-  selector:
-    app: auth-mongo
-  ports:
-    - name: db
-      protocol: TCP
-      port: 27017
-      targetPort: 27017
