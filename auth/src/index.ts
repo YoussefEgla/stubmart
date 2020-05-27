@@ -2,6 +2,7 @@ require("dotenv").config();
 import logger from "morgan";
 import express from "express";
 import routes from "./routes";
+import { errorHandler } from "./middlewares";
 
 const server = express();
 
@@ -24,6 +25,13 @@ server.use(
  *
  */
 server.use(routes);
+
+/**
+ *
+ * Error Handler Middleware
+ *
+ */
+server.use(errorHandler);
 
 /**
  *
